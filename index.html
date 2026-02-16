@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code for Product Managers</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      background: #fafafa;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo span {
+      color: #d97706;
+    }
+
+    nav a {
+      color: #1a1a2e;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      background: #1a1a2e;
+      color: #fff;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.85;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(170deg, #fff 0%, #f5f0eb 50%, #fef3c7 100%);
+    }
+
+    .hero .badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(217, 119, 6, 0.1);
+      color: #b45309;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #d97706, #b45309);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.25);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1.5px solid #d0d0d0;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #1a1a2e;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d97706;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* What It Does */
+    .what-it-does {
+      background: #fff;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      background: #fafafa;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-color: #ddd;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      background: #fef3c7;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Why It Matters */
+    .why-it-matters {
+      background: #fafafa;
+    }
+
+    .reasons-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .reason {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .reason-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1a1a2e;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .reason h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .reason p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* Terminal demo */
+    .terminal {
+      max-width: 680px;
+      margin: 3rem auto 0;
+      background: #1a1a2e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(26, 26, 46, 0.2);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.9rem 1.2rem;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #c4c4d4;
+    }
+
+    .terminal-body .prompt {
+      color: #d97706;
+    }
+
+    .terminal-body .command {
+      color: #fff;
+    }
+
+    .terminal-body .output {
+      color: #7c7c8a;
+    }
+
+    .terminal-body .success {
+      color: #34d399;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(170deg, #1a1a2e 0%, #2d2b55 100%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta-section .section-label {
+      color: #fbbf24;
+    }
+
+    .cta-section .section-title {
+      color: #fff;
+    }
+
+    .cta-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.65);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section .btn-primary {
+      background: #d97706;
+      padding: 1rem 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-section .btn-primary:hover {
+      box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
+    }
+
+    .cta-links {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cta-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .cta-links a:hover {
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #999;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 640px) {
+      .features-grid,
+      .reasons-list {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.5rem 1.5rem;
+      }
+
+      .hero {
+        padding: 5rem 1.5rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">claude <span>code</span></div>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">Get Started</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">Built by Anthropic</div>
+    <h1>Ship product faster<br>with <span>Claude Code</span></h1>
+    <p>An agentic coding tool that lives in your terminal. Write features, fix bugs, and refactor entire codebases through natural conversation.</p>
+    <div class="cta-group">
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary" target="_blank">Install Claude Code</a>
+      <a href="#what-it-does" class="btn-secondary">See what it does</a>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="terminal-dot" style="background: #ff5f57;"></div>
+        <div class="terminal-dot" style="background: #ffbd2e;"></div>
+        <div class="terminal-dot" style="background: #28c840;"></div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="command">claude</span></div>
+        <div class="output">Welcome to Claude Code v1.0</div>
+        <br>
+        <div><span class="prompt">></span> <span class="command">Add a referral tracking system to the dashboard. Track referral source, conversion rate, and attribution window.</span></div>
+        <br>
+        <div class="output">Reading src/pages/dashboard.tsx...</div>
+        <div class="output">Reading src/lib/analytics.ts...</div>
+        <div class="output">Creating src/components/ReferralTracker.tsx...</div>
+        <div class="output">Updating database schema...</div>
+        <div class="success">Done. Created 3 files, modified 2. All tests passing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Does -->
+  <section class="what-it-does" id="what-it-does">
+    <div class="container">
+      <div class="section-label">What It Does</div>
+      <div class="section-title">An AI engineer in your terminal</div>
+      <div class="section-subtitle">Claude Code reads your codebase, understands context, and makes real changes across multiple files. No copy-pasting. No context switching.</div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128269;</div>
+          <h3>Codebase Understanding</h3>
+          <p>Reads, searches, and navigates your entire project. Understands architecture, patterns, and dependencies before making changes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9999;&#65039;</div>
+          <h3>Multi-File Editing</h3>
+          <p>Creates, modifies, and refactors across multiple files in a single conversation. Handles the boring plumbing so you can focus on product.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128640;</div>
+          <h3>Ship-Ready Output</h3>
+          <p>Runs tests, checks types, and commits changes with proper messages. The code it writes is production-grade, not a prototype.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128172;</div>
+          <h3>Natural Conversation</h3>
+          <p>Describe what you want in plain English. Iterate by saying "make the button bigger" or "add error handling." No syntax required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="why-it-matters">
+    <div class="container">
+      <div class="section-label">Why It Matters</div>
+      <div class="section-title">PMs who ship their own prototypes win</div>
+      <div class="section-subtitle">The best product managers don't just write specs. They build, test, and validate ideas themselves.</div>
+
+      <div class="reasons-list">
+        <div class="reason">
+          <div class="reason-number">1</div>
+          <div>
+            <h3>Validate faster than your sprint cycle</h3>
+            <p>Stop waiting for eng capacity to test an idea. Build a working prototype in an afternoon and bring real data to your next planning session.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <div class="reason-number">2</div>
+          <div>
+            <h3>Speak engineering's language</h3>
+            <p>When you've built features yourself, you write better specs, give sharper feedback, and earn deeper trust with your dev team.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <div class="reason-number">3</div>
+          <div>
+            <h3>Own your internal tools</h3>
+            <p>Build dashboards, automate reports, create admin panels. Stop filing tickets for things you could ship yourself in an hour.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <div class="reason-number">4</div>
+          <div>
+            <h3>Become unreasonably effective</h3>
+            <p>The PM who can prototype, analyze data in SQL, and automate workflows is the one who gets promoted. Claude Code is the leverage that makes it possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-label">Get Started</div>
+      <div class="section-title">Install it in 30 seconds</div>
+      <div class="section-subtitle">One command. No IDE plugins. No configuration. Just open your terminal and start building.</div>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary" target="_blank">Read the Docs</a>
+      <div class="cta-links">
+        or run <code style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem;">npm install -g @anthropic-ai/claude-code</code> in your terminal
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built with Claude Code, obviously.
+  </footer>
+
+</body>
+</html>
