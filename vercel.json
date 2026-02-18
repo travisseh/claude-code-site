@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/monitor-competitors",
+      "schedule": "0 14 * * *"
+    }
+  ]
+}
