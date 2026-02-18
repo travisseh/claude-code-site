@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build an AI-Powered Competitor Tracker in 20 Minutes | Claude Code</title>
+  <meta name="description" content="Stop manually tracking competitors. Use Claude Code to build a live competitive intelligence tracker with pricing monitoring, feature comparisons, and G2 review alerts — no engineering required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/">claude <span>code</span></a></div>
+    <div class="nav-links">
+      <a href="/#sound-familiar">Use Cases</a>
+      <a href="/#calculator">ROI Calculator</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="nav-cta" target="_blank">Try It Free</a>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="hero-badge reveal">Competitive Intelligence</div>
+    <h1 class="reveal reveal-delay-1">Stop manually tracking competitors. Build a <em>live tracker</em> in 20 minutes.</h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Your competitors change their pricing, ship new features, and collect new reviews every week. You shouldn't need a spreadsheet and 4 hours every Monday to keep up.</p>
+    <div class="cta-group reveal reveal-delay-3">
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary" target="_blank">Try Claude Code</a>
+      <a href="/blog/how-to-build-competitor-tracker-with-ai.html" class="btn-secondary">Read the tutorial</a>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">How It Works</div>
+      <div class="section-heading reveal reveal-delay-1">Three steps. No tickets filed.</div>
+      <div class="section-desc reveal reveal-delay-2">You describe what you want in plain English. Claude Code builds it. You share the result with your team. That's the whole workflow.</div>
+
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Describe what you want</h3>
+          <p>Tell Claude Code which competitors to track, what data points matter to your team, and how you want the output formatted. Use the same language you'd use in a Slack message to a colleague.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-number">2</div>
+          <h3>Claude Code builds it</h3>
+          <p>It scrapes the data, structures the comparison, and generates a clean HTML page with responsive tables, filters, and visual formatting. The whole thing takes about 20 minutes.</p>
+        </div>
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-number">3</div>
+          <h3>Share with your team</h3>
+          <p>Deploy to Vercel with one command, send the link to sales, or drop the file into your internal wiki. No more stale spreadsheets or screenshot-based battlecards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section>
+    <div class="container">
+      <div class="section-eyebrow reveal">What You Can Track</div>
+      <div class="section-heading reveal reveal-delay-1">Everything that matters for your next battlecard</div>
+      <div class="section-desc reveal reveal-delay-2">Each of these is something a PMM told us they were doing manually. Each one takes less than 30 minutes to build with Claude Code.</div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">$</div>
+          <h3>Pricing tracker</h3>
+          <p>Monitor competitor pricing pages weekly. See tier changes, feature additions, and plan restructuring before your sales team finds out from a prospect.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">&harr;</div>
+          <h3>Feature comparison matrix</h3>
+          <p>Side-by-side feature grids pulled from product pages and documentation. Filterable by category, searchable, and always current. Share a link instead of a PDF.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">&starf;</div>
+          <h3>G2 review monitor</h3>
+          <p>Track competitor review sentiment, new complaints, and emerging themes. Know what their customers are saying without refreshing G2 every morning.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">&varr;</div>
+          <h3>Changelog alerts</h3>
+          <p>Track product updates and changelog entries across competitors. Get a weekly digest of what shipped so you can update positioning before the next sales call.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">&target;</div>
+          <h3>Positioning analyzer</h3>
+          <p>Compare homepage messaging, taglines, and value propositions. See how competitors position against you and where the gaps are in the market narrative.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">&raquo;</div>
+          <h3>Win/loss pattern tracker</h3>
+          <p>Feed in your CRM exports and surface which competitors you lose to most, which objections come up, and where your positioning needs work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terminal Demo -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">See It In Action</div>
+      <div class="section-heading reveal reveal-delay-1">This is the actual prompt a PMM would use</div>
+      <div class="section-desc reveal reveal-delay-2">No special syntax. No API keys to configure. Just describe what you want like you'd explain it to a smart colleague.</div>
+
+      <div class="terminal reveal reveal-delay-3" style="max-width: 760px;">
+        <div class="terminal-header">
+          <div class="terminal-dot" style="background: #ff5f57;"></div>
+          <div class="terminal-dot" style="background: #ffbd2e;"></div>
+          <div class="terminal-dot" style="background: #28c840;"></div>
+        </div>
+        <div class="terminal-body">
+          <div><span class="prompt">$</span> <span class="command">claude</span></div>
+          <div style="color: rgba(255,255,255,0.5);">Welcome to Claude Code v1.0</div>
+          <br>
+          <div><span class="prompt">></span> <span class="command">Build me a competitor tracking page. I want to compare us (Acme Analytics) against Mixpanel, Amplitude, Heap, and PostHog.</span></div>
+          <br>
+          <div><span class="prompt">></span> <span class="command">For each competitor, show: pricing tiers with prices, key feature differences vs us, G2 rating and review count, and their latest 3 product updates.</span></div>
+          <br>
+          <div><span class="prompt">></span> <span class="command">Make it a clean HTML page I can share with the sales team. Include filters so they can view by competitor or by category.</span></div>
+          <br>
+          <div style="color: rgba(255,255,255,0.5);">Fetching pricing data from competitor sites...</div>
+          <div style="color: rgba(255,255,255,0.5);">Pulling G2 ratings and recent reviews...</div>
+          <div style="color: rgba(255,255,255,0.5);">Scraping changelog and product update pages...</div>
+          <div style="color: rgba(255,255,255,0.5);">Building comparison tables with filter controls...</div>
+          <div style="color: rgba(255,255,255,0.5);">Adding responsive layout and brand styling...</div>
+          <br>
+          <div class="success">Done. competitor-tracker.html created.</div>
+          <div class="success">Open it in your browser or deploy to Vercel with: vercel deploy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'd Build -->
+  <section>
+    <div class="container">
+      <div class="section-eyebrow reveal">What You'd Build</div>
+      <div class="section-heading reveal reveal-delay-1">From a 20-minute conversation to a living intel hub</div>
+      <div class="section-desc reveal reveal-delay-2">Here's what the output actually looks like. A single HTML page with everything your sales team needs, always up to date.</div>
+
+      <div class="output-grid">
+        <div class="output-card reveal">
+          <div class="output-label">Pricing comparison</div>
+          <div class="output-preview">
+            <div class="output-table">
+              <div class="output-row output-header">
+                <span>Feature</span><span>You</span><span>Comp A</span><span>Comp B</span><span>Comp C</span>
+              </div>
+              <div class="output-row">
+                <span>Starter plan</span><span class="highlight-cell">$49/mo</span><span>$79/mo</span><span>$99/mo</span><span>$65/mo</span>
+              </div>
+              <div class="output-row">
+                <span>Growth plan</span><span class="highlight-cell">$149/mo</span><span>$199/mo</span><span>$249/mo</span><span>$179/mo</span>
+              </div>
+              <div class="output-row">
+                <span>Enterprise</span><span class="highlight-cell">Custom</span><span>$499/mo</span><span>Custom</span><span>$399/mo</span>
+              </div>
+              <div class="output-row">
+                <span>Free tier</span><span class="highlight-cell">Yes</span><span>No</span><span>Yes</span><span>No</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="output-card reveal reveal-delay-1">
+          <div class="output-label">G2 sentiment snapshot</div>
+          <div class="output-preview">
+            <div class="output-metric-grid">
+              <div class="output-metric">
+                <div class="output-metric-value" style="color: var(--accent);">4.6</div>
+                <div class="output-metric-label">Your rating</div>
+                <div class="output-metric-sub">342 reviews</div>
+              </div>
+              <div class="output-metric">
+                <div class="output-metric-value">4.4</div>
+                <div class="output-metric-label">Comp A</div>
+                <div class="output-metric-sub">891 reviews</div>
+              </div>
+              <div class="output-metric">
+                <div class="output-metric-value">4.3</div>
+                <div class="output-metric-label">Comp B</div>
+                <div class="output-metric-sub">567 reviews</div>
+              </div>
+              <div class="output-metric">
+                <div class="output-metric-value">4.5</div>
+                <div class="output-metric-label">Comp C</div>
+                <div class="output-metric-sub">234 reviews</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="output-card reveal reveal-delay-2">
+          <div class="output-label">Recent competitor updates</div>
+          <div class="output-preview">
+            <div class="output-updates">
+              <div class="output-update">
+                <span class="output-update-badge">Comp A</span>
+                <span class="output-update-text">Launched AI-powered dashboards</span>
+                <span class="output-update-date">Feb 10</span>
+              </div>
+              <div class="output-update">
+                <span class="output-update-badge">Comp B</span>
+                <span class="output-update-text">Dropped starter plan price to $79</span>
+                <span class="output-update-date">Feb 8</span>
+              </div>
+              <div class="output-update">
+                <span class="output-update-badge">Comp C</span>
+                <span class="output-update-text">Added Salesforce native integration</span>
+                <span class="output-update-date">Feb 5</span>
+              </div>
+              <div class="output-update">
+                <span class="output-update-badge">Comp A</span>
+                <span class="output-update-text">Announced SOC 2 Type II certification</span>
+                <span class="output-update-date">Feb 2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / Quote -->
+  <section class="objection-section">
+    <div class="container">
+      <div class="objection-inner">
+        <div class="section-eyebrow reveal">The PMM's Unfair Advantage</div>
+        <div class="objection-quote reveal reveal-delay-1">"I spent 4 hours every Monday updating a competitive spreadsheet nobody read. Now I have a live page that sales actually uses."</div>
+        <div class="objection-response reveal reveal-delay-2">
+          Competitive intelligence tools like Klue and Crayon charge <strong>$30,000+ per year</strong> and still require you to organize and format the output for your team.
+          <br><br>
+          Claude Code costs <strong>$20/month</strong>. You build exactly what you need, formatted exactly how your team uses it, in the time it takes to finish your morning coffee.
+          <br><br>
+          And because you built it, you can iterate on it instantly. Need to add a new competitor? Change the format? Add a section on analyst coverage? <strong>Just tell Claude Code what to change.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">Ready?</div>
+      <div class="section-heading reveal reveal-delay-1">Build your competitor tracker today</div>
+      <div class="section-desc reveal reveal-delay-2">20 minutes from now, you could have a live competitive intelligence page your sales team actually wants to use. No engineering tickets. No $30K software contracts.</div>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary reveal reveal-delay-3" target="_blank">Try Claude Code</a>
+
+      <div class="cta-steps reveal reveal-delay-4">
+        <div class="cta-step">
+          <div class="cta-step-number">1</div>
+          <div class="cta-step-text">Install with <code>npm i -g @anthropic-ai/claude-code</code></div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-number">2</div>
+          <div class="cta-step-text">Type <code>claude</code> in your terminal</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-number">3</div>
+          <div class="cta-step-text">Paste: "Build me a competitor tracking page comparing us against [competitors]"</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    This entire site was built with Claude Code in one conversation.
+  </footer>
+
+  <style>
+    /* ── Steps Grid (How It Works) ──────────────────────────────────────────── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      padding: 2.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .step-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 8px 40px -8px rgba(26, 22, 20, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 1px solid rgba(197, 75, 26, 0.15);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Output Preview Cards ──────────────────────────────────────────────── */
+    .output-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .output-grid .output-card:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .output-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .output-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 8px 40px -8px rgba(26, 22, 20, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .output-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      padding: 1.2rem 1.8rem 0;
+    }
+
+    .output-preview {
+      padding: 1.2rem 1.8rem 1.8rem;
+    }
+
+    /* Output Table */
+    .output-table {
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .output-row {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(4, 1fr);
+      gap: 0.5rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .output-row:last-child {
+      border-bottom: none;
+    }
+
+    .output-header {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border-strong);
+    }
+
+    .output-row span {
+      color: var(--text-muted);
+    }
+
+    .output-row span:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .highlight-cell {
+      color: var(--accent) !important;
+      font-weight: 600 !important;
+    }
+
+    /* Output Metrics */
+    .output-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .output-metric-value {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .output-metric-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .output-metric-sub {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* Output Updates */
+    .output-updates {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .output-update {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .output-update:last-child {
+      border-bottom: none;
+    }
+
+    .output-update-badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      border: 1px solid rgba(197, 75, 26, 0.12);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .output-update-text {
+      color: var(--text);
+      flex: 1;
+    }
+
+    .output-update-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .output-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .output-grid .output-card:first-child {
+        grid-column: 1;
+      }
+
+      .output-row {
+        grid-template-columns: 1.5fr repeat(2, 1fr);
+      }
+
+      .output-row span:nth-child(4),
+      .output-row span:nth-child(5) {
+        display: none;
+      }
+
+      .output-metric-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .output-update {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+
+  <script>
+    /* --- Scroll reveal --- */
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

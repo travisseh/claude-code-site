@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Competitor Tracker with AI in Under 30 Minutes | Claude Code</title>
+  <meta name="description" content="Step-by-step tutorial: use Claude Code to build a live competitor tracking page with pricing comparisons, feature matrices, and G2 review monitoring. No coding experience needed.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/">claude <span>code</span></a></div>
+    <div class="nav-links">
+      <a href="/#sound-familiar">Use Cases</a>
+      <a href="/#calculator">ROI Calculator</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="nav-cta" target="_blank">Try It Free</a>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="article-meta">
+      <span>Feb 2026</span>
+      <span class="tag">Tutorial</span>
+    </div>
+    <h1>How to Build a Competitor Tracker with <em>AI</em> in Under 30 Minutes</h1>
+    <p class="article-excerpt">You're spending hours every week manually updating competitive intelligence spreadsheets that nobody reads. Here's how to build a live, shareable competitor tracking page using Claude Code &mdash; no engineering background required.</p>
+  </header>
+
+  <!-- Hero Image -->
+  <div class="article-hero-img">
+    <img src="/images/blog-competitor-tracker-ai.png" alt="AI-powered competitor tracker built with Claude Code showing pricing comparisons and feature matrices">
+  </div>
+
+  <!-- Article Body -->
+  <div class="article-body">
+
+    <h2>The competitive intel problem every PMM knows</h2>
+
+    <p>If you're a product marketer at a Series B SaaS company, you already know this ritual. Every Monday morning, you open six browser tabs &mdash; one for each competitor's pricing page. You check G2 for new reviews. You skim their changelog for product updates. Then you spend an hour or two updating a Google Sheet that your sales team glances at once a quarter.</p>
+
+    <p>It's not that competitive intelligence doesn't matter. It's that the <strong>format is broken</strong>. Spreadsheets go stale the moment you close the tab. PDFs get buried in Google Drive. Battlecards last until the next pricing change, which could be next week.</p>
+
+    <p>The real cost isn't the 3&ndash;5 hours per week you spend on manual tracking. It's that your sales team stops trusting the data because it's always a little bit out of date, and you stop investing in it because nobody reads it anyway.</p>
+
+    <p>There's a better way. And it takes about 30 minutes to set up.</p>
+
+    <hr>
+
+    <h2>What you'll build</h2>
+
+    <p>By the end of this tutorial, you'll have a <strong>live HTML competitor tracking page</strong> that includes:</p>
+
+    <ul>
+      <li>A pricing comparison table across your top competitors with tier breakdowns</li>
+      <li>A feature comparison matrix filterable by category</li>
+      <li>G2 ratings with review counts and recent sentiment</li>
+      <li>A changelog section showing each competitor's latest product updates</li>
+      <li>Responsive design that works on desktop and mobile</li>
+      <li>Filter controls so sales can drill into specific competitors</li>
+    </ul>
+
+    <p>It's a single HTML file you can share as a link, host on Vercel for free, or drop into your company wiki. And because you built it with Claude Code, you can update it by just asking for changes in plain English.</p>
+
+    <hr>
+
+    <h2>Prerequisites</h2>
+
+    <p>You need exactly one thing:</p>
+
+    <ul>
+      <li><strong>A Claude Pro subscription</strong> ($20/month) &mdash; this gives you access to Claude Code</li>
+    </ul>
+
+    <p>That's it. You don't need to know JavaScript, HTML, or any programming language. You don't need a GitHub account (though it helps for deployment). You don't need to install a code editor. If you can type a sentence, you have the skills required.</p>
+
+    <hr>
+
+    <h2>Step 1: Set up Claude Code</h2>
+
+    <p>Open your computer's terminal. On Mac, search for "Terminal" in Spotlight. On Windows, use PowerShell or Windows Terminal.</p>
+
+    <p>Install Claude Code with this command:</p>
+
+    <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+
+    <p>If you don't have npm installed, you'll need Node.js first. Download it from <a href="https://nodejs.org" target="_blank">nodejs.org</a> &mdash; grab the LTS version and run the installer. It takes about 2 minutes.</p>
+
+    <p>Once installed, create a folder for your project and start Claude Code:</p>
+
+    <pre><code>mkdir competitor-tracker
+cd competitor-tracker
+claude</code></pre>
+
+    <p>You'll see a welcome message and a prompt. That's your conversational interface. Everything from here is plain English.</p>
+
+    <hr>
+
+    <h2>Step 2: Describe your tracker</h2>
+
+    <p>This is where the magic happens. You're going to describe what you want the same way you'd explain it to a smart colleague who happens to be very fast at building things.</p>
+
+    <p>Here's the exact prompt you can use. Swap in your own company name and competitors:</p>
+
+    <pre><code>Build me a competitor tracking page for our product marketing team.
+
+We're Acme Analytics. I want to compare us against these competitors:
+- Mixpanel
+- Amplitude
+- Heap
+- PostHog
+
+For each competitor, include:
+1. Pricing tiers with actual prices (scrape their pricing pages)
+2. Key feature differences vs us (focus on analytics, integrations, and reporting)
+3. G2 rating and number of reviews
+4. Their most recent 3 product updates from their changelog
+
+Format it as a clean, professional HTML page with:
+- A header with our company name and "Competitive Intelligence" as the subtitle
+- Filter buttons to show/hide individual competitors
+- Responsive tables that work on mobile
+- A "Last updated" timestamp at the top
+- Color coding: green where we win, red where we lose, gray for neutral
+
+Make it look polished enough that I can share the link with our sales team.</code></pre>
+
+    <p>Paste that in (with your own details) and press Enter. Claude Code will start working &mdash; you'll see it fetching data, building the HTML structure, adding styles, and creating the interactive filters.</p>
+
+    <p>The whole process takes about 15&ndash;20 minutes. You can watch it work or grab a coffee.</p>
+
+    <hr>
+
+    <h2>Step 3: Customize and extend</h2>
+
+    <p>Once Claude Code finishes the first version, open the file in your browser to review it. Then iterate. This is the part that makes Claude Code fundamentally different from a traditional tool &mdash; <strong>customization is just another conversation</strong>.</p>
+
+    <p>Some examples of follow-up prompts:</p>
+
+    <pre><code>> Add a section comparing our support options vs competitors.
+  Include response time SLAs and support channels.
+
+> Change the color scheme to match our brand. Primary: #2563eb,
+  secondary: #f59e0b, background: #fafafa.
+
+> Add a "Key Takeaway" callout box at the top summarizing where
+  we're strongest and where we need to improve.
+
+> Make the pricing section collapsible so it doesn't take up
+  so much vertical space.
+
+> Add Gong as a fifth competitor.</code></pre>
+
+    <p>Each of these takes Claude Code a few minutes to implement. You're not writing code &mdash; you're having a conversation about what you want, and Claude Code handles the implementation.</p>
+
+    <p>Want to restructure the whole page? Change the layout from tables to cards? Add a dark mode toggle? Just ask. The barrier between "I want this" and "it exists" is a single sentence.</p>
+
+    <hr>
+
+    <h2>Step 4: Share with your team</h2>
+
+    <p>You've got a polished competitor tracking page. Now get it in front of your sales team.</p>
+
+    <h3>Option A: Deploy to Vercel (recommended)</h3>
+
+    <p>If you have a Vercel account (free tier works), deploying takes one command:</p>
+
+    <pre><code>npx vercel deploy</code></pre>
+
+    <p>Vercel gives you a public URL you can share with anyone. Updates are just as easy &mdash; make changes with Claude Code, then run the deploy command again.</p>
+
+    <h3>Option B: Share the file directly</h3>
+
+    <p>The output is a single HTML file. You can email it, drop it in Slack, or upload it to your company wiki. Anyone can open it in a browser without installing anything.</p>
+
+    <h3>Option C: Host on your internal tools</h3>
+
+    <p>If your company uses Notion, Confluence, or an internal wiki, you can embed the page or link to the hosted version. Ask Claude Code to add your company's internal branding if needed.</p>
+
+    <hr>
+
+    <h2>Going further</h2>
+
+    <p>The basic tracker is already more useful than the spreadsheet it replaces. But Claude Code lets you push further without adding complexity to your workflow.</p>
+
+    <h3>Automate weekly updates</h3>
+
+    <p>Ask Claude Code to add a script that refreshes the competitor data. You can run it manually every Monday, or set up a simple cron job to do it automatically. Here's what the prompt looks like:</p>
+
+    <pre><code>> Add a Node.js script that refreshes all competitor data
+  and regenerates the HTML page. I want to run it weekly.</code></pre>
+
+    <h3>Add Slack alerts</h3>
+
+    <p>Get notified when a competitor changes their pricing or ships a major update:</p>
+
+    <pre><code>> Add a Slack webhook integration that sends a message to
+  #competitive-intel whenever a competitor's pricing changes
+  or they publish a new changelog entry.</code></pre>
+
+    <h3>Build a G2 review dashboard</h3>
+
+    <p>Go deeper on review intelligence:</p>
+
+    <pre><code>> Create a separate page that tracks G2 review sentiment over
+  time for each competitor. Show trending themes in positive
+  and negative reviews from the last 90 days.</code></pre>
+
+    <h3>Connect to your CRM</h3>
+
+    <p>If you export win/loss data from Salesforce or HubSpot, Claude Code can build analysis on top of it:</p>
+
+    <pre><code>> I'm going to drop in a CSV of our closed-lost deals. Analyze
+  which competitors we lose to most, the top 3 objections for
+  each, and create a visual breakdown I can use in our QBR.</code></pre>
+
+    <p>Each of these extensions takes 20&ndash;30 minutes. You're not learning a new tool or waiting on engineering. You're just describing the next thing you want.</p>
+
+    <hr>
+
+    <h2>The bigger picture</h2>
+
+    <p>A competitor tracker is just one example. The pattern is always the same: <strong>you describe what you want, Claude Code builds it, you share the result</strong>.</p>
+
+    <p>Product marketers are using Claude Code to build <a href="/ai-product-marketing-tools.html">ROI calculators, landing page variants, battlecard sites, and data analysis dashboards</a>. The common thread is that these are all things that used to require filing a ticket and waiting weeks &mdash; or paying for expensive, one-size-fits-all SaaS tools that never quite do what you need.</p>
+
+    <p>If you've been curious about what <a href="/ai-tools-non-engineers.html">AI tools built for non-engineers</a> actually look like in practice, this is it. Not chatbots that write copy for you. Tools that let you build real, working software by describing what you want.</p>
+
+    <p>The question isn't whether you're technical enough. If you can describe a competitor tracker to a colleague, you can build one with Claude Code. The question is what you'll build after the tracker.</p>
+
+    <p>Maybe it's a <a href="/#calculator">time savings calculator</a> to quantify the ROI for your own team. Maybe it's a <a href="/claude-code-vs-cursor.html">comparison of AI coding tools</a> to decide what to recommend to your org. Whatever it is, the gap between "I wish this existed" and "I built this before lunch" just got a lot smaller.</p>
+
+    <!-- Article CTA Box -->
+    <div class="article-cta-box">
+      <h3>Build your first competitor tracker today</h3>
+      <p>20 minutes from install to a live competitive intelligence page. No coding experience required. Just describe what you want.</p>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary" target="_blank">Try Claude Code</a>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h2>Keep reading</h2>
+    <div class="related-posts-grid">
+      <a href="/ai-product-marketing-tools.html" class="related-card">
+        <h4>AI Product Marketing Tools: What Actually Works in 2026</h4>
+        <p>A PMM's honest guide to the AI tools worth your time &mdash; and the ones that are just hype.</p>
+      </a>
+      <a href="/claude-code-vs-cursor.html" class="related-card">
+        <h4>Claude Code vs Cursor: Which AI Coding Tool Is Right for PMMs?</h4>
+        <p>A side-by-side comparison for non-engineers who want to start building.</p>
+      </a>
+      <a href="/ai-tools-non-engineers.html" class="related-card">
+        <h4>AI Tools for Non-Engineers: The Practical Guide</h4>
+        <p>You don't need to write code to use coding tools. Here's how to get started.</p>
+      </a>
+      <a href="/ai-competitor-tracker.html" class="related-card">
+        <h4>Build an AI-Powered Competitor Tracker in 20 Minutes</h4>
+        <p>The landing page companion to this tutorial, with feature breakdowns and example outputs.</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    This entire site was built with Claude Code in one conversation.
+  </footer>
+
+  <script>
+    /* --- Scroll reveal --- */
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

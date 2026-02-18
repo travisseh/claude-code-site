@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Claude Code for Product Marketers</title>
+  <meta name="description" content="Practical guides, comparisons, and tutorials for product marketers using AI tools. Learn how to build competitor trackers, ship landing pages, and automate your workflow with Claude Code.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/">claude <span>code</span></a></div>
+    <div class="nav-links">
+      <a href="/#sound-familiar">Use Cases</a>
+      <a href="/#calculator">ROI Calculator</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="nav-cta" target="_blank">Try It Free</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs reveal">
+        <a href="/">Home</a><span class="sep">/</span>Blog
+      </div>
+      <h1 class="reveal reveal-delay-1">Practical AI guides for <em>product marketers</em></h1>
+      <p class="page-hero-sub reveal reveal-delay-2">Tutorials, comparisons, and use cases for PMMs who want to build real tools &mdash; not just write better copy.</p>
+    </div>
+  </section>
+
+  <section class="pain-section">
+    <div class="container">
+      <div class="blog-grid">
+        <a href="/blog/claude-code-vs-cursor-for-product-marketers.html" class="blog-card reveal">
+          <img src="/images/blog-claude-code-vs-cursor.png" alt="Claude Code vs Cursor comparison" loading="lazy">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Comparison</div>
+            <h3>Claude Code vs Cursor: A Product Marketer's Honest Comparison</h3>
+            <p>Which AI coding tool is better for someone who isn't an engineer? We compare both across the dimensions that matter for PMMs.</p>
+          </div>
+        </a>
+
+        <a href="/blog/ai-tools-for-product-marketing-teams.html" class="blog-card reveal reveal-delay-1">
+          <img src="/images/blog-ai-tools-product-marketing.png" alt="AI tools for product marketing" loading="lazy">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Guide</div>
+            <h3>The 7 Best AI Tools for Product Marketing Teams in 2026</h3>
+            <p>From Claude Code to Jasper to Crayon &mdash; a ranked guide to the tools that actually move the needle for product marketers.</p>
+          </div>
+        </a>
+
+        <a href="/blog/how-to-build-competitor-tracker-with-ai.html" class="blog-card reveal reveal-delay-2">
+          <img src="/images/blog-competitor-tracker-ai.png" alt="Building a competitor tracker with AI" loading="lazy">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Tutorial</div>
+            <h3>How to Build a Competitor Tracker with AI in Under 30 Minutes</h3>
+            <p>Step-by-step: go from a stale spreadsheet to a live, shareable competitor comparison page your sales team will actually use.</p>
+          </div>
+        </a>
+
+        <a href="/blog/best-ai-tools-for-non-engineers.html" class="blog-card reveal reveal-delay-3">
+          <img src="/images/blog-ai-tools-non-engineers.png" alt="AI tools for non-engineers" loading="lazy">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Guide</div>
+            <h3>The Best AI Tools for Non-Engineers: A Practical Guide</h3>
+            <p>You're not a developer &mdash; and that's fine. Here are the AI tools that actually work for people who've never opened a terminal.</p>
+          </div>
+        </a>
+
+        <a href="/blog/ai-landing-page-builder-no-code.html" class="blog-card reveal reveal-delay-4">
+          <img src="/images/blog-ai-landing-page-builder.png" alt="AI landing page builder" loading="lazy">
+          <div class="blog-card-body">
+            <div class="blog-card-tag">How-To</div>
+            <h3>How to Build Landing Pages with AI (No Coding Required)</h3>
+            <p>Skip the design-dev queue. Learn how to describe a landing page, have AI build it, and deploy in under 30 minutes.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="section-eyebrow reveal">Ready to build?</div>
+      <div class="section-heading reveal reveal-delay-1">Your first project takes five minutes</div>
+      <div class="section-desc reveal reveal-delay-2">Pick a tutorial above and follow along. Or just install Claude Code and start describing what you want to build.</div>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary reveal reveal-delay-3" target="_blank">Try Claude Code</a>
+    </div>
+  </section>
+
+  <footer>
+    This entire site was built with Claude Code in one conversation.
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

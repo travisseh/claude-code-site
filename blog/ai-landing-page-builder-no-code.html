@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build Landing Pages with AI (No Coding Required) | Claude Code</title>
+  <meta name="description" content="A step-by-step guide for product marketers to build and deploy landing pages using AI. No coding, no designers, no dev tickets. Just describe what you want and ship it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><a href="/">claude <span>code</span></a></div>
+    <div class="nav-links">
+      <a href="/#sound-familiar">Use Cases</a>
+      <a href="/#calculator">ROI Calculator</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="nav-cta" target="_blank">Try It Free</a>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="article-meta">
+      <span>Feb 2026</span>
+      <span class="tag">How-To</span>
+    </div>
+    <h1>How to Build Landing Pages with AI <em>(No Coding Required)</em></h1>
+    <p class="article-excerpt">You don't need a designer, a developer, or a page-builder subscription. You need a clear brief and five minutes. Here's exactly how product marketers are shipping landing pages with AI &mdash; and why the old way is already obsolete.</p>
+  </header>
+
+  <!-- Hero Image -->
+  <div class="article-hero-img">
+    <img src="/images/blog-ai-landing-page-builder.png" alt="AI landing page builder workflow showing a prompt becoming a deployed page">
+  </div>
+
+  <!-- Article Body -->
+  <div class="article-body">
+
+    <h2>The Landing Page Bottleneck Every PMM Knows</h2>
+
+    <p>If you're a product marketing manager at a Series B SaaS company, you've lived this cycle dozens of times: a campaign needs a landing page, you write the brief, you file the ticket, and then you wait. Two weeks for design. Another week for dev. A round of QA. A round of revisions. By the time the page ships, the campaign window has narrowed and you've already moved on to the next launch.</p>
+
+    <p>The math doesn't work. Your company is running more campaigns, targeting more personas, and testing more channels than ever &mdash; but the design-dev pipeline hasn't scaled with you. You're bottlenecked not by ideas, but by execution capacity.</p>
+
+    <p>This is the problem <a href="/ai-product-marketing-tools.html">AI-powered marketing tools</a> were built to solve. Not by replacing your judgment, but by removing the production layer between your brief and a live page.</p>
+
+    <hr>
+
+    <h2>The Old Way vs. The New Way</h2>
+
+    <p>Let's be honest about what "building a landing page" actually looks like today for most PMM teams:</p>
+
+    <h3>The Old Way</h3>
+    <ol>
+      <li><strong>Write the brief</strong> &mdash; messaging, audience, CTA, layout preferences (45 min)</li>
+      <li><strong>File a ticket</strong> &mdash; Jira, Asana, Linear, whatever your team uses (15 min)</li>
+      <li><strong>Wait for design</strong> &mdash; 1-3 weeks depending on sprint priorities</li>
+      <li><strong>Review the mockup</strong> &mdash; give feedback, wait for revision (3-5 days)</li>
+      <li><strong>Wait for dev</strong> &mdash; another 1-2 weeks for implementation</li>
+      <li><strong>QA and deploy</strong> &mdash; 2-3 more days</li>
+    </ol>
+
+    <p><strong>Total elapsed time: 3-6 weeks.</strong> For a single page. And if you need four persona variants? Multiply by four.</p>
+
+    <h3>The New Way</h3>
+    <ol>
+      <li><strong>Describe the page</strong> &mdash; same brief you'd write anyway, but in a conversation with Claude Code (5 min)</li>
+      <li><strong>Review and iterate</strong> &mdash; open it in your browser, ask for changes in plain English (10-15 min)</li>
+      <li><strong>Deploy</strong> &mdash; push to Vercel, Netlify, or share the HTML file directly (2 min)</li>
+    </ol>
+
+    <p><strong>Total elapsed time: 20-30 minutes.</strong> No tickets. No waiting. No dependencies on other teams.</p>
+
+    <p>This isn't a hypothetical. This is how product marketers are already working with tools like Claude Code &mdash; and it changes what's possible for small, fast-moving marketing teams.</p>
+
+    <hr>
+
+    <h2>Step-by-Step: Building a Landing Page with Claude Code</h2>
+
+    <p>Here's the exact workflow. If you can describe what you want in a Slack message, you can do this.</p>
+
+    <h3>Step 1: Write Your Prompt</h3>
+
+    <p>The quality of your landing page depends on the quality of your prompt. Think of it like the creative brief you'd hand to an agency &mdash; except you don't need to format it. Just include the essentials:</p>
+
+    <ul>
+      <li><strong>Who is this for?</strong> (e.g., "data team leads at Series B SaaS companies")</li>
+      <li><strong>What's the core message?</strong> (e.g., "Stop waiting for dashboards. Build them yourself.")</li>
+      <li><strong>What action should visitors take?</strong> (e.g., "Book a demo" or "Start free trial")</li>
+      <li><strong>What sections should the page include?</strong> (e.g., hero, how-it-works, comparison table, testimonial, CTA)</li>
+      <li><strong>Any brand constraints?</strong> (e.g., color palette, fonts, tone of voice)</li>
+    </ul>
+
+    <p>Here's an example prompt that works:</p>
+
+    <pre><code>Build a landing page for our new AI Analytics feature. Target data
+team leads at Series B companies. Hero headline: "Stop waiting for
+dashboards." Include a 3-step how-it-works section, a comparison
+table vs. Looker and Tableau, and a CTA to book a demo. Use a clean,
+modern design with our brand colors (#1a1614, #c54b1a, #faf6f0).</code></pre>
+
+    <p>That's it. No wireframes. No Figma link. No 12-page requirements doc.</p>
+
+    <h3>Step 2: Review and Iterate</h3>
+
+    <p>Claude Code generates the full HTML page &mdash; layout, copy, styles, responsive design, and any interactive elements you requested. Open it in your browser and review it like you would any design proof.</p>
+
+    <p>The difference: instead of writing revision comments in a design tool, you just <em>say what you want changed</em>:</p>
+
+    <ul>
+      <li>"Make the hero headline bigger and add a subtitle about time savings"</li>
+      <li>"Swap the comparison table for a feature grid with icons"</li>
+      <li>"Add a second CTA after the how-it-works section"</li>
+      <li>"Create a variant of this page targeting startup founders instead"</li>
+    </ul>
+
+    <p>Each change takes seconds, not days. You're iterating in real time with the same speed you'd edit a Google Doc.</p>
+
+    <h3>Step 3: Deploy</h3>
+
+    <p>You have options here, and none of them require a developer:</p>
+
+    <ul>
+      <li><strong>Vercel</strong> &mdash; connect your repo and push. Auto-deploys in seconds. Free tier is generous.</li>
+      <li><strong>Netlify</strong> &mdash; drag and drop the HTML file. Done. Live URL in 10 seconds.</li>
+      <li><strong>Share the HTML file</strong> &mdash; for internal stakeholder reviews, just send the file. It opens in any browser.</li>
+      <li><strong>Embed in your CMS</strong> &mdash; paste the HTML into WordPress, HubSpot, or whatever you're running.</li>
+    </ul>
+
+    <p>The point is: you go from "I need a page" to "here's the URL" in a single sitting. No sprint planning required.</p>
+
+    <hr>
+
+    <h2>5 Landing Pages Every PMM Should Build with AI</h2>
+
+    <p>Once you realize you can ship pages this fast, you start thinking differently about what's worth building. Here are the five highest-leverage pages for product marketing teams:</p>
+
+    <h3>1. Product Launch Page</h3>
+    <p>Every feature launch deserves its own dedicated page &mdash; not a buried section in the changelog. Build a page with a clear hero, feature breakdown, and "try it now" CTA. Ship it <em>before</em> the feature even merges so it's ready on launch day.</p>
+
+    <h3>2. Competitive Comparison Page</h3>
+    <p>The "vs." page is one of the highest-intent pages on your site. Build pages comparing your product against each major competitor with honest, detailed comparisons. These rank well for "[your product] vs [competitor]" searches and convert visitors who are actively evaluating.</p>
+
+    <h3>3. Event Registration Page</h3>
+    <p>Webinar in 48 hours? Conference booth activation next week? Build a dedicated registration page with speaker bios, agenda, and a clean signup form. Don't settle for the generic Zoom registration page when you can have something on-brand in 20 minutes.</p>
+
+    <h3>4. ROI Calculator Page</h3>
+    <p>Interactive calculators convert at 2-5x the rate of static pages. Build one that lets prospects input their own numbers and see projected savings or revenue impact. Claude Code can generate the JavaScript for slider-based calculators, input validation, and dynamic results. <a href="/#calculator">See an example in action</a>.</p>
+
+    <h3>5. Persona-Specific Variant</h3>
+    <p>Your enterprise buyer and your startup founder don't care about the same things. Build separate pages for each persona with tailored messaging, social proof, and CTAs. Run different ad campaigns pointing to different variants and watch your conversion rates climb.</p>
+
+    <hr>
+
+    <h2>Claude Code vs. Traditional Page Builders</h2>
+
+    <p>You might be wondering how this compares to tools you already know &mdash; Webflow, Unbounce, Instapage, or even WordPress page builders. Here's the honest breakdown:</p>
+
+    <p><strong>Webflow</strong> is powerful but requires learning a complex visual editor. It's built for designers, not marketers. If you have a dedicated web designer on your team, Webflow is great. If you're the one building the page at 9 PM before a launch, it's not.</p>
+
+    <p><strong>Unbounce and Instapage</strong> are purpose-built for landing pages, which means they're simpler. But "simpler" still means drag-and-drop interfaces, template constraints, and $100+/month subscriptions. You're trading one set of limitations for another.</p>
+
+    <p><strong>WordPress page builders</strong> (Elementor, Divi) are flexible but bloated. Every page loads 400KB of CSS you don't need. And customization still requires understanding the builder's paradigm.</p>
+
+    <p><strong>Claude Code</strong> takes a fundamentally different approach. Instead of learning a tool's interface, you describe what you want. Instead of working within template constraints, you get bespoke HTML that does exactly what you specified. Instead of paying per-seat monthly fees, you get pages that are yours &mdash; clean, fast, deployable anywhere.</p>
+
+    <p>The tradeoff: you don't get a visual WYSIWYG editor. You get something better &mdash; a conversation partner that builds exactly what you describe and iterates at the speed of language. For PMMs who know what they want (and you do), that's faster than any drag-and-drop tool.</p>
+
+    <p>For a broader look at how <a href="/ai-tools-non-engineers.html">AI tools are changing what non-engineers can build</a>, see our deep-dive guide.</p>
+
+    <hr>
+
+    <h2>Tips for Better AI-Generated Landing Pages</h2>
+
+    <p>After watching dozens of PMMs build pages with Claude Code, here are the patterns that separate great results from mediocre ones:</p>
+
+    <h3>Be specific about your audience</h3>
+    <p>"Build a landing page" gives you a generic page. "Build a landing page for VP-level buyers at mid-market healthcare companies who are evaluating workflow automation tools" gives you something that resonates. The more specific your audience definition, the sharper the messaging.</p>
+
+    <h3>Include your actual copy when you have it</h3>
+    <p>If you've already nailed your headline or your value prop language, include it in the prompt. Claude Code will build around your copy rather than generating new messaging from scratch. You get the structure and design work automated while keeping your carefully crafted words intact.</p>
+
+    <h3>Reference pages you like</h3>
+    <p>Say "structure this like Linear's homepage" or "use a layout similar to Vercel's product page." Claude Code understands these references and can adapt those patterns to your content.</p>
+
+    <h3>Ask for interactive elements</h3>
+    <p>Static pages convert. Interactive pages convert better. Ask for scroll animations, hover effects, tabbed content, expandable FAQs, or embedded calculators. These aren't "nice to haves" anymore &mdash; they're a prompt away.</p>
+
+    <h3>Build for mobile first</h3>
+    <p>Include "make sure it's fully responsive and looks great on mobile" in your prompt. Claude Code generates responsive CSS by default, but being explicit about mobile importance ensures the mobile experience gets extra attention.</p>
+
+    <h3>Iterate in the same conversation</h3>
+    <p>Don't start over if something isn't right. Just tell Claude Code what to change. "Move the testimonial section above the pricing" or "make the CTA more prominent" works exactly how you'd expect. Each iteration builds on the last, and you keep your full context.</p>
+
+    <p>For more ways to leverage AI in your product marketing workflow, explore our guide to <a href="/ai-product-marketing-tools.html">AI tools for product marketers</a> or see how <a href="/claude-code-vs-cursor.html">Claude Code compares to other AI coding tools</a>.</p>
+
+    <hr>
+
+    <!-- Article CTA Box -->
+    <div class="article-cta-box">
+      <h3>Ready to build your first page?</h3>
+      <p>Install Claude Code and describe the landing page you've been waiting on engineering to build. It takes five minutes.</p>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="btn-primary" target="_blank">Try Claude Code</a>
+    </div>
+
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h2>Keep reading</h2>
+    <div class="related-posts-grid">
+      <a href="/ai-product-marketing-tools.html" class="related-card">
+        <h4>AI Tools for Product Marketers</h4>
+        <p>The complete guide to AI tools that help PMMs ship faster without filing tickets.</p>
+      </a>
+      <a href="/claude-code-vs-cursor.html" class="related-card">
+        <h4>Claude Code vs. Cursor</h4>
+        <p>How the two most popular AI coding tools compare for non-engineers.</p>
+      </a>
+      <a href="/ai-tools-non-engineers.html" class="related-card">
+        <h4>AI Tools for Non-Engineers</h4>
+        <p>What you can actually build without knowing how to code &mdash; and where to start.</p>
+      </a>
+      <a href="/#calculator" class="related-card">
+        <h4>ROI Calculator</h4>
+        <p>See how many hours per week you'd save by building with Claude Code.</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    This entire site was built with Claude Code in one conversation.
+  </footer>
+
+  <script>
+    /* --- Scroll reveal --- */
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
